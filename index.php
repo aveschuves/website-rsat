@@ -537,8 +537,7 @@
                     href="mailto:aveschuves@gmail.com"
                     class="btn btn-primary"
                 >
-                    Hubungi Kami 
-                    085221100190 
+                    Hubungi Kami https://whatsapp.com/channel/0029VbDc9c73GJP2chajd53Z
                 </a>
             </div>
         </section>
