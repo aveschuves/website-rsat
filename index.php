@@ -211,7 +211,6 @@
                                 <li>Gunakan sesuai spesifikasi dan petunjuk pemasangan</li>
                             </ul>
                             <p class="price-note">Harga dan ketersediaan: silakan tanyakan melalui WhatsApp.</p>
-                            <a class="btn btn-primary" href="https://wa.me/6285221100190?text=Halo%2C%20saya%20ingin%20bertanya%20tentang%20produk%20RSAT%20V1." target="_blank" rel="noopener noreferrer">Tanyakan Produk</a>
                         </div>
                     </div>
                 </div>
