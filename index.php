@@ -118,9 +118,9 @@ nav a:hover::after {
 .tagline {
     display: inline-block;
     color: var(--neon);
-    font-size: 12px;
+    font-size: 10px;
     font-weight: 800;
-    letter-spacing: 2px;
+    letter-spacing: 1px;
     margin-bottom: 12px;
 }
 
@@ -145,6 +145,7 @@ h1 {
 }
 
 .btn {
+    width: 100%;
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -298,6 +299,7 @@ footer {
 /* HP */
 @media (max-width: 650px) {
     header {
+        gap: 16px;
         position: relative;
         justify-content: center;
         text-align: center;
@@ -305,8 +307,9 @@ footer {
     }
 
     nav {
+        width: 100%;
         justify-content: center;
-        gap: 12px 20px;
+        gap: 12px 16px;
     }
 
     nav a {
@@ -395,11 +398,16 @@ footer {
             </div>
         </div>
 
-        <div id="produk">
+        <div class="product-visual">
             <img
                 src="assets/images/rsat-v1.png"
                 alt="Produk RSAT V1 Smart Security"
                 class="product-image"
+                    width: 100%;
+                      display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        min-width: 0;
             >
         </div>
     </section>
