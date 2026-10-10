@@ -9,5 +9,6 @@
 <body>
     <h1>RSAT Smart Security</h1>
     <p>Selamat datang di website RSAT Smart Security.</p>
+    <p>Kita menyediakan solusi keamanan pintar untuk rumah dan bisnis Anda.</p>
 </body>
 </html>
