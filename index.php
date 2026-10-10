@@ -4,467 +4,551 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>RSAT V1 | Smart Security</title>
+    <meta name="description" content="RSAT V1, solusi deteksi gerakan dan alarm keamanan praktis untuk berbagai lokasi.">
+
     <style>
+        :root {
+            --dark: #06190b;
+            --green-dark: #0d5120;
+            --green: #21b52f;
+            --neon: #8cff00;
+            --white: #ffffff;
+            --light: #f3f7f2;
+            --muted: #647067;
+            --border: #dce7dc;
+        }
+
         * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
-:root {
-    --dark: #06190b;
-    --green-dark: #0d5120;
-    --green: #21b52f;
-    --neon: #8cff00;
-    --white: #ffffff;
-    --muted: #647067;
-}
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 85px;
+        }
 
-html {
-    scroll-behavior: smooth;
-    scroll-padding-top: 90px;
-}
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+            font-size: 16px;
+        }
 
-body {
-    font-family: Arial, Helvetica, sans-serif;
-    background: #f4f7f3;
-    color: #172019;
-    line-height: 1.7;
-}
+        a {
+            text-decoration: none;
+        }
 
-header {
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    min-height: 76px;
-    padding: 14px 7%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 24px;
-    flex-wrap: wrap;
-    color: var(--white);
-    background: rgba(6, 25, 11, 0.97);
-    border-bottom: 2px solid var(--green);
-    box-shadow: 0 5px 20px #00000018;
-}
+        .container {
+            width: min(1120px, 90%);
+            margin: 0 auto;
+        }
 
-.logo {
-    font-size: 29px;
-    font-weight: 900;
-    letter-spacing: 1.5px;
-    line-height: 1.2;
-}
+        /* HEADER */
+        .header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: var(--dark);
+            border-bottom: 1px solid var(--green);
+        }
 
-.logo span {
-    color: var(--neon);
-}
+        .navbar {
+            min-height: 68px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 24px;
+        }
 
-nav {
-    display: flex;
-    align-items: center;
-    gap: 28px;
-    flex-wrap: wrap;
-}
+        .logo {
+            color: var(--white);
+            font-size: 25px;
+            font-weight: 800;
+            letter-spacing: 0.5px;
+        }
 
-nav a {
-    position: relative;
-    color: var(--white);
-    text-decoration: none;
-    font-size: 14px;
-    font-weight: 700;
-    transition: color 0.2s ease;
-}
+        .logo span {
+            color: var(--neon);
+        }
 
-nav a:hover {
-    color: var(--neon);
-}
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 28px;
+        }
 
-nav a::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: -7px;
-    width: 0;
-    height: 2px;
-    background: var(--neon);
-    transition: width 0.2s ease;
-}
+        .nav-links a {
+            color: var(--white);
+            font-size: 14px;
+            font-weight: 700;
+            transition: color 0.2s;
+        }
 
-nav a:hover::after {
-    width: 100%;
-}
+        .nav-links a:hover {
+            color: var(--neon);
+        }
 
-.hero {
-    position: relative;
-    overflow: hidden;
-    background:
-        radial-gradient(ellipse at 85% 50%, #16762d 0%, transparent 48%),
-        linear-gradient(120deg, var(--dark), #0b3d18 65%, #126b25);
-    color: var(--white);
-    padding: 75px 7%;
-    min-height: 510px;
-    display: grid;
-    grid-template-columns: 1.05fr 0.95fr;
-    align-items: center;
-    gap: 55px;
-}
+        /* HERO */
+        .hero {
+            background:
+                radial-gradient(
+                    circle at 85% 40%,
+                    #176f30 0,
+                    #0b3b1b 42%,
+                    var(--dark) 100%
+                );
+            color: var(--white);
+            padding: 64px 0;
+        }
 
-.hero > div:first-child {
-    max-width: 600px;
-}
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.05fr 0.95fr;
+            align-items: center;
+            gap: 48px;
+        }
 
-.tagline {
-    display: inline-block;
-    color: var(--neon);
-    font-size: 10px;
-    font-weight: 800;
-    letter-spacing: 1px;
-    margin-bottom: 12px;
-}
+        .eyebrow {
+            color: var(--neon);
+            font-size: 12px;
+            font-weight: 800;
+            letter-spacing: 1.5px;
+            margin-bottom: 14px;
+        }
 
-h1 {
-    font-size: clamp(38px, 4.5vw, 62px);
-    line-height: 1.13;
-    letter-spacing: -1.5px;
-    margin: 8px 0 22px;
-}
+        .hero h1 {
+            font-size: clamp(36px, 4.2vw, 54px);
+            line-height: 1.12;
+            margin-bottom: 20px;
+            max-width: 600px;
+        }
 
-.hero p {
-    max-width: 520px;
-    margin-bottom: 30px;
-    color: #e0ece2;
-    font-size: 16px;
-}
+        .hero h1 span {
+            color: var(--neon);
+        }
 
-.buttons {
-    display: flex;
-    gap: 14px;
-    flex-wrap: wrap;
-}
+        .hero-description {
+            max-width: 520px;
+            color: #e0e9e1;
+            font-size: 16px;
+            margin-bottom: 28px;
+        }
 
-.btn {
-    width: 100%;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 46px;
-    padding: 12px 23px;
-    border-radius: 7px;
-    text-decoration: none;
-    font-size: 14px;
-    font-weight: 800;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
+        .hero-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
 
-.btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 7px 18px #00000025;
-}
+        .btn {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 46px;
+            padding: 12px 22px;
+            border: 1px solid transparent;
+            border-radius: 6px;
+            font-size: 15px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: transform 0.2s, background 0.2s;
+        }
 
-.btn-primary {
-    background: var(--neon);
-    color: var(--dark);
-}
+        .btn:hover {
+            transform: translateY(-2px);
+        }
 
-.btn-secondary {
-    border: 1px solid #d8e9d9;
-    color: var(--white);
-    background: #ffffff08;
-}
+        .btn-primary {
+            background: var(--neon);
+            color: var(--dark);
+        }
 
-#produk {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
+        .btn-primary:hover {
+            background: #a2ff32;
+        }
 
-.product-image {
-    display: block;
-    width: 100%;
-    max-width: 500px;
-    height: auto;
-    object-fit: contain;
-    margin: auto;
-    border-radius: 10px;
-    box-shadow: 0 20px 50px #00000040;
-}
+        .btn-outline {
+            border-color: #d9eadb;
+            color: var(--white);
+            background: transparent;
+        }
 
-/* Gambar asli dipertahankan; tidak ada filter atau pemotongan. */
+        .btn-outline:hover {
+            background: rgba(255, 255, 255, 0.08);
+        }
 
-section {
-    padding: 75px 7%;
-}
+        .product-visual {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-width: 0;
+        }
 
-#fitur {
-    background: #f4f7f3;
-}
+        .product-image {
+            display: block;
+            width: 100%;
+            max-width: 450px;
+            height: auto;
+            object-fit: contain;
+        }
 
-.section-title {
-    text-align: center;
-    font-size: clamp(27px, 3vw, 36px);
-    line-height: 1.3;
-    margin-bottom: 12px;
-    color: #102b16;
-}
+        /* FITUR */
+        .features {
+            padding: 64px 0 72px;
+            background: var(--light);
+        }
 
-.section-desc {
-    text-align: center;
-    color: var(--muted);
-    margin: 0 auto 38px;
-    max-width: 650px;
-    font-size: 15px;
-}
+        .section-heading {
+            text-align: center;
+            margin-bottom: 32px;
+        }
 
-.features {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 22px;
-}
+        .section-heading h2 {
+            font-size: clamp(25px, 3vw, 32px);
+            line-height: 1.25;
+            margin-bottom: 10px;
+        }
 
-.feature {
-    position: relative;
-    overflow: hidden;
-    background: var(--white);
-    padding: 28px 25px;
-    border: 1px solid #e4ebe3;
-    border-bottom: 4px solid var(--green);
-    border-radius: 13px;
-    box-shadow: 0 7px 24px #102b1609;
-    transition: transform 0.25s ease, box-shadow 0.25s ease;
-}
+        .section-heading p {
+            color: var(--muted);
+            font-size: 15px;
+        }
 
-.feature:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 14px 30px #102b1615;
-}
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 18px;
+        }
 
-.feature h3 {
-    margin-bottom: 10px;
-    color: #146326;
-    font-size: 18px;
-}
+        .feature-card {
+            background: var(--white);
+            padding: 24px;
+            border: 1px solid var(--border);
+            border-bottom: 3px solid var(--green);
+            border-radius: 9px;
+            box-shadow: 0 4px 14px rgba(6, 25, 11, 0.04);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
 
-.feature p {
-    color: #58645a;
-    font-size: 14px;
-    line-height: 1.8;
-}
+        .feature-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 22px rgba(6, 25, 11, 0.09);
+        }
 
-.cta {
-    position: relative;
-    text-align: center;
-    background: linear-gradient(135deg, #e9f9e1, #d8f3ce);
-    border-top: 1px solid #d3e9ca;
-}
+        .feature-card h3 {
+            color: var(--green-dark);
+            font-size: 18px;
+            margin-bottom: 8px;
+        }
 
-.cta .section-desc {
-    margin-bottom: 25px;
-}
+        .feature-card p {
+            color: var(--muted);
+            font-size: 15px;
+        }
 
-footer {
-    background: var(--dark);
-    color: #e7f1e8;
-    text-align: center;
-    padding: 25px 7%;
-    border-top: 3px solid var(--green);
-    font-size: 13px;
-}
+        /* CTA */
+        .contact {
+            padding: 58px 0;
+            text-align: center;
+            background: linear-gradient(120deg, #eaf9e4, #d6f3cc);
+            border-top: 1px solid #d2e9c9;
+        }
 
-/* Tablet */
-@media (max-width: 900px) {
-    .hero {
-        grid-template-columns: 1fr 0.85fr;
-        gap: 30px;
-        padding: 60px 5%;
-    }
+        .contact h2 {
+            font-size: clamp(25px, 3vw, 32px);
+            margin-bottom: 10px;
+        }
 
-    header,
-    section {
-        padding-left: 5%;
-        padding-right: 5%;
-    }
+        .contact p {
+            color: #526451;
+            font-size: 16px;
+            margin-bottom: 24px;
+        }
 
-    .features {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
+        .contact .btn {
+            min-width: 210px;
+        }
 
-    nav {
-        gap: 18px;
-    }
-}
+        /* FOOTER */
+        .footer {
+            background: var(--dark);
+            color: var(--white);
+            text-align: center;
+            padding: 22px 16px;
+            border-top: 2px solid var(--green);
+            font-size: 14px;
+        }
 
-/* HP */
-@media (max-width: 650px) {
-    header {
-        gap: 16px;
-        position: relative;
-        justify-content: center;
-        text-align: center;
-        padding: 18px 5%;
-    }
+        /* TABLET */
+        @media (max-width: 900px) {
+            .hero {
+                padding: 52px 0;
+            }
 
-    nav {
-        width: 100%;
-        justify-content: center;
-        gap: 12px 16px;
-    }
+            .hero-grid {
+                gap: 28px;
+                grid-template-columns: 1fr 0.85fr;
+            }
 
-    nav a {
-        font-size: 13px;
-    }
+            .product-image {
+                max-width: 360px;
+            }
 
-    .hero {
-        grid-template-columns: 1fr;
-        gap: 35px;
-        padding: 48px 6%;
-        text-align: center;
-    }
+            .features-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
 
-    .hero > div:first-child {
-        margin: auto;
-    }
+            .nav-links {
+                gap: 18px;
+            }
+        }
 
-    h1 {
-        font-size: clamp(36px, 10vw, 48px);
-        letter-spacing: -1px;
-    }
+        /* HP */
+        @media (max-width: 650px) {
+            .navbar {
+                min-height: 64px;
+                flex-direction: column;
+                justify-content: center;
+                gap: 8px;
+                padding: 12px 0;
+            }
 
-    .hero p {
-        margin-left: auto;
-        margin-right: auto;
-    }
+            .logo {
+                font-size: 23px;
+            }
 
-    .buttons {
-        justify-content: center;
-    }
+            .nav-links {
+                width: 100%;
+                justify-content: center;
+                flex-wrap: wrap;
+                gap: 10px 22px;
+            }
 
-    .product-image {
-        max-width: 420px;
-        border-radius: 8px;
-    }
+            .nav-links a {
+                font-size: 13px;
+                padding: 3px 0;
+            }
 
-    section {
-        padding: 48px 6%;
-    }
+            .hero {
+                padding: 44px 0;
+            }
 
-    .features {
-        grid-template-columns: 1fr;
-        gap: 16px;
-    }
+            .hero-grid {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
 
-    .feature {
-        padding: 23px;
-    }
-}
+            .hero-copy {
+                text-align: center;
+            }
 
-@media (prefers-reduced-motion: reduce) {
-    *,
-    *::before,
-    *::after {
-        scroll-behavior: auto !important;
-        transition: none !important;
-    }
-}
+            .hero-description {
+                margin-left: auto;
+                margin-right: auto;
+            }
 
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            .hero-buttons .btn {
+                flex: 1 1 160px;
+            }
+
+            .product-image {
+                max-width: min(100%, 390px);
+            }
+
+            .features {
+                padding: 48px 0;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+                gap: 14px;
+            }
+
+            .feature-card {
+                padding: 21px;
+            }
+
+            .contact {
+                padding: 46px 0;
+            }
+
+            .contact .btn {
+                width: 100%;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+
+            *,
+            *::before,
+            *::after {
+                transition: none !important;
+            }
+        }
     </style>
 </head>
+
 <body>
 
-<header>
-    <div class="logo">RSAT <span>V1</span></div>
-    <nav>
-        <a href="#home">Home</a>
-        <a href="#fitur">Fitur</a>
-        <a href="#produk">Produk</a>
-        <a href="#kontak">Kontak</a>
-    </nav>
-</header>
+    <!-- HEADER -->
+    <header class="header">
+        <div class="container navbar">
+            <a href="#home" class="logo" aria-label="RSAT V1 Home">
+                RSAT <span>V1</span>
+            </a>
 
-<main>
-    <section class="hero" id="home">
-        <div>
-            <div class="tagline">RADAR SECURITY ALARM TECHNOLOGY</div>
-            <h1>Keamanan <span style="color:#8cff00">Lebih Nyata.</span></h1>
-            <p>
-                Deteksi gerakan, alarm otomatis, dan solusi keamanan
-                praktis untuk rumah, gudang, kios, serta berbagai lokasi lainnya.
-            </p>
-            <div class="buttons">
-                <a class="btn btn-primary" href="#produk">Lihat Produk</a>
-                <a class="btn btn-secondary" href="#kontak">Hubungi Kami</a>
+            <nav class="nav-links" aria-label="Navigasi utama">
+                <a href="#home">Home</a>
+                <a href="#fitur">Fitur</a>
+                <a href="#produk">Produk</a>
+                <a href="#kontak">Kontak</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero" id="home">
+            <div class="container hero-grid">
+
+                <div class="hero-copy">
+                    <p class="eyebrow">
+                        RADAR SECURITY ALARM TECHNOLOGY (RSAT)
+                    </p>
+
+                    <h1>
+                        Keamanan <span>Lebih Nyata.</span>
+                    </h1>
+
+                    <p class="hero-description">
+                        Deteksi gerakan, alarm otomatis, dan solusi keamanan
+                        praktis untuk rumah, gudang, lokasi kerja, serta
+                        berbagai lokasi lainnya.
+                    </p>
+
+                    <div class="hero-buttons">
+                        <a href="#produk" class="btn btn-primary">
+                            Lihat Produk
+                        </a>
+
+                        <a href="#kontak" class="btn btn-outline">
+                            Hubungi Kami
+                        </a>
+                    </div>
+                </div>
+
+                <div class="product-visual" id="produk">
+                    <img
+                        src="assets/images/rsat-v1.png"
+                        alt="Produk RSAT V1 Smart Security"
+                        class="product-image"
+                        width="450"
+                        height="450"
+                        fetchpriority="high"
+                    >
+                </div>
+
             </div>
-        </div>
+        </section>
 
-        <div class="product-visual">
-            <img
-                src="assets/images/rsat-v1.png"
-                alt="Produk RSAT V1 Smart Security"
-                class="product-image"
-                    width: 100%;
-                      display: flex;
-                        justify-content: center;
-                        align-items: center;
-                        min-width: 0;
-            >
-        </div>
-    </section>
+        <section class="features" id="fitur">
+            <div class="container">
 
-    <section id="fitur">
-        <h2 class="section-title">Mengapa Memilih RSAT V1?</h2>
-        <p class="section-desc">
-            Solusi keamanan yang praktis, ringkas, dan mudah digunakan.
+                <div class="section-heading">
+                    <h2>Mengapa Memilih RSAT V1?</h2>
+                    <p>
+                        Solusi keamanan yang praktis, ringkas, dan mudah digunakan.
+                    </p>
+                </div>
+
+                <div class="features-grid">
+
+                    <article class="feature-card">
+                        <h3>Deteksi Gerakan</h3>
+                        <p>
+                            Mendeteksi gerakan menggunakan teknologi sensor microwave.
+                        </p>
+                    </article>
+
+                    <article class="feature-card">
+                        <h3>Output Relay</h3>
+                        <p>
+                            Mendukung keluaran kontak relay NO/NC untuk
+                            sistem alarm yang sesuai.
+                        </p>
+                    </article>
+
+                    <article class="feature-card">
+                        <h3>Alarm Suara</h3>
+                        <p>
+                            Mendukung buzzer eksternal 5V untuk memberikan
+                            peringatan suara.
+                        </p>
+                    </article>
+
+                    <article class="feature-card">
+                        <h3>Input 12–48V DC & Custom</h3>
+                        <p>
+                            Dirancang untuk rentang masukan sesuai spesifikasi
+                            perangkat.
+                        </p>
+                    </article>
+
+                    <article class="feature-card">
+                        <h3>Desain Kompak</h3>
+                        <p>
+                            Bentuk ringkas untuk membantu pemasangan di berbagai lokasi.
+                        </p>
+                    </article>
+
+                    <article class="feature-card">
+                        <h3>Instalasi Praktis</h3>
+                        <p>
+                            Dirancang agar integrasi ke sistem alarm menjadi
+                            lebih mudah.
+                        </p>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+        <section class="contact" id="kontak">
+            <div class="container">
+                <h2>Tingkatkan Keamanan Lokasi Anda</h2>
+
+                <p>
+                    RSAT V1 — Investasi Kecil untuk Keamanan Besar.
+                </p>
+
+                <a
+                    href="mailto:aveschuves@gmail.com"
+                    class="btn btn-primary"
+                >
+                    Hubungi Kami 
+                    085221100190 
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <p>
+            &copy; 2026 RSAT V1 — Radar Security Alarm Technology
         </p>
-
-        <div class="features">
-            <article class="feature">
-                <h3>Deteksi Gerakan</h3>
-                <p>Mendeteksi gerakan menggunakan teknologi sensor microwave.</p>
-            </article>
-
-            <article class="feature">
-                <h3>Output Relay</h3>
-                <p>Mendukung keluaran kontak relay NO/NC untuk sistem alarm yang sesuai.</p>
-            </article>
-
-            <article class="feature">
-                <h3>Alarm Suara</h3>
-                <p>Mendukung buzzer eksternal 5V untuk memberikan peringatan suara.</p>
-            </article>
-
-            <article class="feature">
-                <h3>Input 12–48V DC</h3>
-                <p>Dirancang untuk rentang masukan daya sesuai spesifikasi perangkat.</p>
-            </article>
-
-            <article class="feature">
-                <h3>Desain Kompak</h3>
-                <p>Bentuk ringkas untuk membantu pemasangan di berbagai lokasi.</p>
-            </article>
-
-            <article class="feature">
-                <h3>Instalasi Praktis</h3>
-                <p>Dirancang agar integrasi ke sistem alarm menjadi lebih mudah.</p>
-            </article>
-        </div>
-    </section>
-
-    <section class="cta" id="kontak">
-        <h2 class="section-title">Tingkatkan Keamanan Lokasi Anda</h2>
-        <p class="section-desc">
-            RSAT V1 — Investasi Kecil untuk Keamanan Besar.
-        </p>
-        <a class="btn btn-primary" href="mailto:info@rsat.local">
-            Hubungi Kami
-        </a>
-    </section>
-</main>
-
-<footer>
-    <p>&copy; 2026 RSAT V1 — Radar Security Alarm Technology</p>
-</footer>
+    </footer>
 
 </body>
 </html>
