@@ -44,7 +44,7 @@
         }
 
         .container {
-            width: min(1120px, 90%);
+            width: min(1500px, 90%);
             margin: 0 auto;
         }
 
@@ -222,12 +222,12 @@
         .features-grid {
             display: grid;
             grid-template-columns: repeat(3, minmax(0, 1fr));
-            gap: 18px;
+            gap: 22px;
         }
 
         .feature-card {
             background: var(--white);
-            padding: 24px;
+            padding: 28px;
             border: 1px solid var(--border);
             border-bottom: 3px solid var(--green);
             border-radius: 9px;
@@ -242,13 +242,13 @@
 
         .feature-card h3 {
             color: var(--green-dark);
-            font-size: 18px;
+            font-size: 20px;
             margin-bottom: 8px;
         }
 
         .feature-card p {
             color: var(--muted);
-            font-size: 15px;
+            font-size: 16px;
         }
 
         /* CTA */
@@ -419,6 +419,7 @@
     </header>
 
     <main>
+        <!-- HERO -->
         <section class="hero" id="home">
             <div class="container hero-grid">
 
