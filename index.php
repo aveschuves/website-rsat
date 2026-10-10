@@ -4,10 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RSAP Smart Security</title>
+    <title>RSAT Smart Security</title>
 </head>
 <body>
-    <h1>RSAP Smart Security</h1>
-    <p>Selamat datang di website RSAP.</p>
+    <h1>RSAT Smart Security</h1>
+    <p>Selamat datang di website RSAT Smart Security.</p>
 </body>
 </html>
