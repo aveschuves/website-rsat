@@ -534,11 +534,13 @@
                 </p>
 
                 <a
-                    href="mailto:aveschuves@gmail.com"
-                    class="btn btn-primary"
-                >
-                    Hubungi Kami https://whatsapp.com/channel/0029VbDc9c73GJP2chajd53Z
-                </a>
+                href="https://wa.me/6285221100190"
+                class="btn btn-primary"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                Hubungi Kami via WhatsApp
+            </a>
             </div>
         </section>
     </main>
