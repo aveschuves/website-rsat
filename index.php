@@ -133,6 +133,57 @@
         @media (prefers-reduced-motion: reduce) {
             *, *::before, *::after { animation: none !important; transition: none !important; }
         }
+/* Galeri informasi RSAT V1 */
+        .product-gallery {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+            align-items: start;
+        }
+
+        .gallery-card {
+            min-width: 0;
+            background: #ffffff;
+            color: #102016;
+            border: 1px solid #dce8dc;
+            border-radius: 14px;
+            padding: 16px;
+            box-sizing: border-box;
+        }
+
+        .gallery-card img {
+            display: block;
+            width: 100%;
+            height: auto;
+            object-fit: contain;
+            border-radius: 8px;
+        }
+
+        .gallery-card h3 {
+            color: #08752b;
+            font-size: 18px;
+            margin: 14px 0 8px;
+        }
+
+        .gallery-card p {
+            font-size: 14px;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        @media (max-width: 768px) {
+            .product-gallery {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                gap: 12px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .product-gallery {
+                grid-template-columns: 1fr;
+            }
+        }
     </style>
 </head>
 <body>
@@ -159,10 +210,7 @@
                             Deteksi gerakan, alarm otomatis, dan solusi keamanan praktis
                             untuk rumah, gudang, lokasi kerja, serta berbagai lokasi lainnya.
                         </p>
-                        <div class="hero-buttons">
-                            <a href="#produk" class="btn btn-primary" data-page-link>Lihat Produk</a>
-                            <a href="#kontak" class="btn btn-outline" data-page-link>Hubungi Kami</a>
-                        </div>
+
                     </div>
                     <div class="product-visual">
                         <img src="assets/images/rsat-v1.png" alt="Produk RSAT V1 Smart Security" class="product-image" width="450" height="450" fetchpriority="high">
@@ -201,6 +249,41 @@
                         <div class="product-visual">
                             <img src="assets/images/rsat-v1.png" alt="Produk RSAT V1 Smart Security" class="product-image" width="450" height="450" loading="lazy">
                         </div>
+
+                        <div class="section-heading">
+                            <h2>Komponen dan Informasi RSAT V1</h2>
+                            <p>Kenali komponen, cara kerja, dan pilihan produk RSAT V1.</p>
+                        </div>
+
+                        <div class="product-gallery">
+                            <article class="gallery-card">
+                                <img src="assets/images/rsat-produk-dc-ac.png"
+                                    alt="Pilihan produk RSAT V1 input DC dan AC">
+                                <h3>Pilihan Produk DC dan AC</h3>
+                                <p>Pilih versi sesuai sumber daya dan kebutuhan instalasi.</p>
+                        
+                            <article class="gallery-card">
+                                <img src="assets/images/rsat-cara-kerja.png"
+                                    alt="Ilustrasi cara kerja RSAT V1">
+                                <h3>Cara Kerja</h3>
+                                <p>Sensor mendeteksi gerakan, kemudian sistem memproses sinyal untuk mengaktifkan alarm.</p>
+                            </article>
+
+                            <article class="gallery-card">
+                                <img src="assets/images/rsat-spesifikasi-dc-ac.png"
+                                    alt="Tabel spesifikasi RSAT V1 DC dan AC">
+                                <h3>Spesifikasi Produk</h3>
+                                <p>Perbandingan spesifikasi versi DC dan AC.</p>
+                            </article>
+
+                            <article class="gallery-card">
+                                <img src="assets/images/rsat-aplikasi-penggunaan.png"
+                                    alt="Contoh penggunaan RSAT V1">
+                                <h3>Aplikasi Penggunaan</h3>
+                                <p>Contoh penerapan untuk rumah, gudang, kios, dan halaman.</p>
+                            </article>
+                        </div>
+
                         <div class="product-info">
                             <h2>RSAT V1 Smart Security</h2>
                             <p>Perangkat deteksi gerakan yang dirancang untuk mendukung sistem alarm keamanan.</p>
