@@ -263,6 +263,30 @@
             }
         }
 
+        #home .hero-rsat {
+            padding: 0;
+            margin: 0;
+            background: #06190b;
+            width: 100%;
+        }
+
+        #home .rsat-home-banner {
+            display: block;
+            width: 100%;
+            height: auto;
+            max-width: none;
+            margin: 0 auto;
+            object-fit: contain;
+        }
+
+        @media (max-width: 600px) {
+            #home .rsat-home-banner {
+                width: 100%;
+                height: auto;
+            }
+        }
+
+
     </style>
 </head>
 <body>
@@ -280,22 +304,15 @@
 
     <main>
         <section class="page active" id="home" aria-labelledby="home-title">
+            
             <div class="hero hero-rsat">
-                <div class="container hero-grid">
-                    <div class="hero-copy">
-                        <p class="eyebrow">RADAR SECURITY ALARM TECHNOLOGY (RSAT)</p>
-                        <h1 id="home-title">Keamanan <span>Lebih Nyata.</span></h1>
-                        <p class="hero-description">
-                            Deteksi gerakan, alarm otomatis, dan solusi keamanan praktis
-                            untuk rumah, gudang, lokasi kerja, serta berbagai lokasi lainnya.
-                        </p>
-
-                    </div>
-                    <div class="product-visual">
-                        <img src="assets/images/rsat-v1.png" alt="Produk RSAT V1 Smart Security" class="product-image" width="450" height="450" fetchpriority="high">
-                    </div>
-                </div>
+                <img
+                    src="assets/images/rsat-hero.png"
+                    alt="RSAT V1 Radar Security Alert Technology"
+                    class="rsat-home-banner"
+                >
             </div>
+
         </section>
 
         <section class="page" id="fitur" aria-labelledby="fitur-title" hidden>
