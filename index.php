@@ -118,21 +118,20 @@
         .gallery-card img {
             display: block;
             width: 100%;
-            height: auto;
+            aspect-ratio: 4 / 3;
             object-fit: contain;
+            background: #f7faf6;
             border-radius: 7px;
         }
 
         .gallery-card h3 {
-            color: var(--green-dark);
-            font-size: 18px;
-            margin: 14px 0 8px;
+            font-size: 16px;
+        margin: 12px 0 6px;
         }
 
         .gallery-card p {
-            color: var(--muted);
-            font-size: 14px;
-            line-height: 1.6;
+            font-size: 13px;
+            line-height: 1.5;
         }
 
         @media (max-width: 900px) {
@@ -256,11 +255,6 @@
     <div class="section">
         <div class="container">
 
-            <div class="section-heading">
-                <h1 id="produk-title">Produk RSAT V1</h1>
-                <p>Solusi deteksi gerakan untuk kebutuhan keamanan lokasi Anda.</p>
-            </div>
-
             <!-- PRODUK UTAMA -->
             <div class="product-layout">
 
@@ -299,8 +293,7 @@
 
             <!-- JUDUL GALERI -->
             <div class="section-heading gallery-heading">
-                <h2>Komponen dan Informasi RSAT V1</h2>
-                <p>Kenali pilihan produk, komponen, dan cara kerja RSAT V1.</p>
+                <h2>Pilihan Produk dan Informasi</h2>
             </div>
 
             <!-- GALERI GAMBAR -->
@@ -315,27 +308,11 @@
                 </article>
 
                 <article class="gallery-card">
-                    <img src="assets/images/rsat-komponen-produk.png"
-                         alt="Komponen produk RSAT V1"
-                         loading="lazy">
-                    <h3>Komponen Produk</h3>
-                    <p>Unit utama, sensor, relay, buzzer, dan aksesori.</p>
-                </article>
-
-                <article class="gallery-card">
-                    <img src="assets/images/rsat-skema-rangkaian-dc.png"
-                         alt="Skema rangkaian RSAT V1 versi DC"
-                         loading="lazy">
-                    <h3>Skema Rangkaian DC</h3>
-                    <p>Ilustrasi hubungan antar-komponen versi DC.</p>
-                </article>
-
-                <article class="gallery-card">
                     <img src="assets/images/rsat-cara-kerja.png"
                          alt="Cara kerja RSAT V1"
                          loading="lazy">
                     <h3>Cara Kerja</h3>
-                    <p>Ilustrasi deteksi gerakan hingga alarm aktif.</p>
+                    <p>Ilustrasi awal deteksi gerakan hingga alarm aktif.</p>
                 </article>
 
                 <article class="gallery-card">
