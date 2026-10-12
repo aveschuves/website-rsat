@@ -53,6 +53,45 @@
             background: radial-gradient(circle at 85% 40%, #176f30 0, #0b3b1b 42%, var(--dark) 100%);
             color: var(--white); padding: 64px 0;
         }
+        
+        .hero-rsat {
+            background:
+                linear-gradient(90deg, rgba(3, 12, 6, 0.92), rgba(3, 12, 6, 0.48)),
+                url("assets/images/rsat-hero.png") center / cover no-repeat;
+            color: #ffffff;
+            border-bottom: 2px solid #21b52f;
+        }
+
+        .hero-rsat .container {
+            width: min(1500px, 92%);
+            margin: 0 auto;
+        }
+
+        .hero-rsat .hero-grid {
+            gap: 32px;
+        }
+
+        .hero-rsat .hero-copy h1 span {
+            color: #8cff00;
+        }
+
+        @media (max-width: 768px) {
+            .hero-rsat {
+                background-position: center;
+            }
+
+            .hero-rsat .hero-grid {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+
+            .hero-rsat .product-image {
+                width: 100%;
+                max-width: 420px;
+                height: auto;
+            }
+        }
+
         .hero-grid { display: grid; grid-template-columns: 1.05fr .95fr; align-items: center; gap: 48px; }
         .eyebrow { color: var(--neon); font-size: 12px; font-weight: 800; letter-spacing: 1.5px; margin-bottom: 14px; }
         .hero h1 { font-size: clamp(36px, 4.2vw, 54px); line-height: 1.12; margin-bottom: 20px; max-width: 600px; }
@@ -206,7 +245,7 @@
 
     <main>
         <section class="page active" id="home" aria-labelledby="home-title">
-            <div class="hero">
+            <div class="hero hero-rsat">
                 <div class="container hero-grid">
                     <div class="hero-copy">
                         <p class="eyebrow">RADAR SECURITY ALARM TECHNOLOGY (RSAT)</p>
