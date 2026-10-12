@@ -55,10 +55,9 @@
         }
         
         .hero-rsat {
-            background:
-                linear-gradient(90deg, rgba(3, 12, 6, 0.92), rgba(3, 12, 6, 0.48)),
-                url("assets/images/rsat-hero.png") center / cover no-repeat;
+            background: #06190b;
             color: #ffffff;
+            padding: 0;
             border-bottom: 2px solid #21b52f;
         }
 
@@ -228,6 +227,42 @@
         @media (prefers-reduced-motion: reduce) {
             *, *::before, *::after { animation: none !important; transition: none !important; }
         }
+
+        /* HOME: banner RSAT V1 */
+        #home .hero {
+            padding: 0;
+            background: #06190b;
+            color: #ffffff;
+        }
+
+        #home .hero-grid {
+            display: block;
+            width: 100%;
+            max-width: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        #home .hero-copy,
+        #home .product-visual {
+            display: none;
+        }
+
+        #home .hero::before {
+            content: "";
+            display: block;
+            width: 100%;
+            aspect-ratio: 1648 / 927;
+            background: url("assets/images/rsat-hero.png") center / contain no-repeat;
+        }
+
+        @media (max-width: 600px) {
+            #home .hero::before {
+                aspect-ratio: 4 / 5;
+                background-size: contain;
+            }
+        }
+
     </style>
 </head>
 <body>
