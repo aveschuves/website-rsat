@@ -91,6 +91,63 @@
             border-radius: 12px; padding: clamp(20px, 4vw, 42px);
         }
         .product-layout .product-image { max-width: 500px; margin: auto; }
+
+        /* Galeri produk RSAT V1 */
+        .gallery-heading {
+            margin-top: 48px;
+        }
+
+        .product-gallery {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 20px;
+            align-items: start;
+        }
+
+        .gallery-card {
+            min-width: 0;
+            padding: 16px;
+            background: var(--white);
+            color: var(--dark);
+            border: 1px solid var(--border);
+            border-bottom: 3px solid var(--green);
+            border-radius: 10px;
+            box-shadow: 0 4px 14px rgba(6, 25, 11, .04);
+        }
+
+        .gallery-card img {
+            display: block;
+            width: 100%;
+            height: auto;
+            object-fit: contain;
+            border-radius: 7px;
+        }
+
+        .gallery-card h3 {
+            color: var(--green-dark);
+            font-size: 18px;
+            margin: 14px 0 8px;
+        }
+
+        .gallery-card p {
+            color: var(--muted);
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        @media (max-width: 900px) {
+            .product-gallery {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                gap: 14px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .product-gallery {
+                grid-template-columns: 1fr;
+            }
+        }
+
         .product-info h2 { font-size: clamp(25px, 3vw, 34px); margin-bottom: 12px; }
         .product-info p { color: var(--muted); margin-bottom: 16px; }
         .product-info ul { padding-left: 22px; margin: 0 0 24px; }
@@ -132,57 +189,6 @@
         }
         @media (prefers-reduced-motion: reduce) {
             *, *::before, *::after { animation: none !important; transition: none !important; }
-        }
-/* Galeri informasi RSAT V1 */
-        .product-gallery {
-            display: grid;
-            grid-template-columns: repeat(3, minmax(0, 1fr));
-            gap: 20px;
-            margin-top: 30px;
-            align-items: start;
-        }
-
-        .gallery-card {
-            min-width: 0;
-            background: #ffffff;
-            color: #102016;
-            border: 1px solid #dce8dc;
-            border-radius: 14px;
-            padding: 16px;
-            box-sizing: border-box;
-        }
-
-        .gallery-card img {
-            display: block;
-            width: 100%;
-            height: auto;
-            object-fit: contain;
-            border-radius: 8px;
-        }
-
-        .gallery-card h3 {
-            color: #08752b;
-            font-size: 18px;
-            margin: 14px 0 8px;
-        }
-
-        .gallery-card p {
-            font-size: 14px;
-            line-height: 1.6;
-            margin: 0;
-        }
-
-        @media (max-width: 768px) {
-            .product-gallery {
-                grid-template-columns: repeat(2, minmax(0, 1fr));
-                gap: 12px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .product-gallery {
-                grid-template-columns: 1fr;
-            }
         }
     </style>
 </head>
@@ -238,67 +244,139 @@
             </div>
         </section>
 
-        <section class="page" id="produk" aria-labelledby="produk-title" hidden>
+         aria-labelledby="produk-title" hidden>
             <div class="section">
                 <div class="container">
                     <div class="section-heading">
                         <h1 id="produk-title">Produk RSAT V1</h1>
                         <p>Solusi deteksi gerakan untuk membantu kebutuhan keamanan lokasi Anda.</p>
                     </div>
-                    <div class="product-layout">
-                        <div class="product-visual">
-                            <img src="assets/images/rsat-v1.png" alt="Produk RSAT V1 Smart Security" class="product-image" width="450" height="450" loading="lazy">
-                        </div>
 
-                        <div class="section-heading">
-                            <h2>Komponen dan Informasi RSAT V1</h2>
-                            <p>Kenali komponen, cara kerja, dan pilihan produk RSAT V1.</p>
-                        </div>
+<section class="page" id="produk" aria-labelledby="produk-title" hidden>
+    <div class="section">
+        <div class="container">
 
-                        <div class="product-gallery">
-                            <article class="gallery-card">
-                                <img src="assets/images/rsat-produk-dc-ac.png"
-                                    alt="Pilihan produk RSAT V1 input DC dan AC">
-                                <h3>Pilihan Produk DC dan AC</h3>
-                                <p>Pilih versi sesuai sumber daya dan kebutuhan instalasi.</p>
-                        
-                            <article class="gallery-card">
-                                <img src="assets/images/rsat-cara-kerja.png"
-                                    alt="Ilustrasi cara kerja RSAT V1">
-                                <h3>Cara Kerja</h3>
-                                <p>Sensor mendeteksi gerakan, kemudian sistem memproses sinyal untuk mengaktifkan alarm.</p>
-                            </article>
-
-                            <article class="gallery-card">
-                                <img src="assets/images/rsat-spesifikasi-dc-ac.png"
-                                    alt="Tabel spesifikasi RSAT V1 DC dan AC">
-                                <h3>Spesifikasi Produk</h3>
-                                <p>Perbandingan spesifikasi versi DC dan AC.</p>
-                            </article>
-
-                            <article class="gallery-card">
-                                <img src="assets/images/rsat-aplikasi-penggunaan.png"
-                                    alt="Contoh penggunaan RSAT V1">
-                                <h3>Aplikasi Penggunaan</h3>
-                                <p>Contoh penerapan untuk rumah, gudang, kios, dan halaman.</p>
-                            </article>
-                        </div>
-
-                        <div class="product-info">
-                            <h2>RSAT V1 Smart Security</h2>
-                            <p>Perangkat deteksi gerakan yang dirancang untuk mendukung sistem alarm keamanan.</p>
-                            <ul>
-                                <li>Sensor microwave untuk deteksi gerakan</li>
-                                <li>Output relay untuk integrasi alarm</li>
-                                <li>Desain ringkas dan praktis</li>
-                                <li>Gunakan sesuai spesifikasi dan petunjuk pemasangan</li>
-                            </ul>
-                            <p class="price-note">Harga dan ketersediaan: silakan tanyakan melalui WhatsApp.</p>
-                        </div>
-                    </div>
-                </div>
+            <div class="section-heading">
+                <h1 id="produk-title">Produk RSAT V1</h1>
+                <p>Solusi deteksi gerakan untuk kebutuhan keamanan lokasi Anda.</p>
             </div>
-        </section>
+
+            <!-- PRODUK UTAMA -->
+            <div class="product-layout">
+
+                <div class="product-visual">
+                    <img
+                        src="assets/images/rsat-v1.png"
+                        alt="Produk utama RSAT V1 Smart Security"
+                        class="product-image"
+                        width="450"
+                        height="450"
+                        loading="lazy">
+                </div>
+
+                <div class="product-info">
+                    <h2>RSAT V1 Smart Security</h2>
+
+                    <p>
+                        Perangkat deteksi gerakan yang dirancang
+                        untuk mendukung sistem alarm keamanan.
+                    </p>
+
+                    <ul>
+                        <li>Sensor microwave untuk deteksi gerakan</li>
+                        <li>Output relay untuk integrasi alarm</li>
+                        <li>Desain ringkas dan praktis</li>
+                        <li>Gunakan sesuai spesifikasi perangkat</li>
+                    </ul>
+
+                    <p class="price-note">
+                        Harga dan ketersediaan dapat ditanyakan melalui WhatsApp.
+                    </p>
+                </div>
+
+            </div>
+            <!-- product-layout BERAKHIR DI SINI -->
+
+            <!-- JUDUL GALERI -->
+            <div class="section-heading gallery-heading">
+                <h2>Komponen dan Informasi RSAT V1</h2>
+                <p>Kenali pilihan produk, komponen, dan cara kerja RSAT V1.</p>
+            </div>
+
+            <!-- GALERI GAMBAR -->
+            <div class="product-gallery">
+
+                <article class="gallery-card">
+                    <img src="assets/images/rsat-produk-dc-ac.png"
+                         alt="Pilihan produk RSAT V1 DC dan AC"
+                         loading="lazy">
+                    <h3>Pilihan Produk DC dan AC</h3>
+                    <p>Informasi pilihan produk sesuai sumber daya.</p>
+                </article>
+
+                <article class="gallery-card">
+                    <img src="assets/images/rsat-komponen-produk.png"
+                         alt="Komponen produk RSAT V1"
+                         loading="lazy">
+                    <h3>Komponen Produk</h3>
+                    <p>Unit utama, sensor, relay, buzzer, dan aksesori.</p>
+                </article>
+
+                <article class="gallery-card">
+                    <img src="assets/images/rsat-skema-rangkaian-dc.png"
+                         alt="Skema rangkaian RSAT V1 versi DC"
+                         loading="lazy">
+                    <h3>Skema Rangkaian DC</h3>
+                    <p>Ilustrasi hubungan antar-komponen versi DC.</p>
+                </article>
+
+                <article class="gallery-card">
+                    <img src="assets/images/rsat-cara-kerja.png"
+                         alt="Cara kerja RSAT V1"
+                         loading="lazy">
+                    <h3>Cara Kerja</h3>
+                    <p>Ilustrasi deteksi gerakan hingga alarm aktif.</p>
+                </article>
+
+                <article class="gallery-card">
+                    <img src="assets/images/rsat-spesifikasi-dc-ac.png"
+                         alt="Spesifikasi RSAT V1 versi DC dan AC"
+                         loading="lazy">
+                    <h3>Spesifikasi Produk</h3>
+                    <p>Informasi spesifikasi kedua versi produk.</p>
+                </article>
+
+                <article class="gallery-card">
+                    <img src="assets/images/rsat-dimensi-dc.png"
+                         alt="Dimensi produk RSAT V1"
+                         loading="lazy">
+                    <h3>Dimensi Produk</h3>
+                    <p>Ilustrasi ukuran unit dan buzzer.</p>
+                </article>
+
+                <article class="gallery-card">
+                    <img src="assets/images/rsat-isi-paket-dc.png"
+                         alt="Isi paket RSAT V1 versi DC"
+                         loading="lazy">
+                    <h3>Isi Paket</h3>
+                    <p>Ilustrasi perangkat dan kelengkapan paket.</p>
+                </article>
+
+                <article class="gallery-card">
+                    <img src="assets/images/rsat-aplikasi-penggunaan.png"
+                         alt="Aplikasi penggunaan RSAT V1"
+                         loading="lazy">
+                    <h3>Aplikasi Penggunaan</h3>
+                    <p>Contoh penggunaan di rumah, gudang, kios, dan halaman.</p>
+                </article>
+
+            </div>
+            <!-- product-gallery BERAKHIR DI SINI -->
+
+        </div>
+    </div>
+</section>
+
 
         <section class="page" id="kontak" aria-labelledby="kontak-title" hidden>
             <div class="section">
