@@ -44,7 +44,10 @@
         }
         .nav-links a:hover, .nav-links a.active { color: var(--dark); background: var(--neon); }
         .page { display: none; animation: pageIn .24s ease-out; }
-        .page.active { display: block; }
+        main { flex: 1; display: flex; }
+        .page.active { display: flex; flex: 1; flex-direction: column; }
+        .hero { flex: 1; display: flex; align-items: center; }
+        .section { flex: 1; }
         @keyframes pageIn {
             from { opacity: 0; transform: translateY(6px); }
             to { opacity: 1; transform: translateY(0); }
@@ -53,44 +56,6 @@
             background: radial-gradient(circle at 85% 40%, #176f30 0, #0b3b1b 42%, var(--dark) 100%);
             color: var(--white); padding: 64px 0;
         }
-        
-        .hero-rsat {
-            background: #06190b;
-            color: #ffffff;
-            padding: 0;
-            border-bottom: 2px solid #21b52f;
-        }
-
-        .hero-rsat .container {
-            width: min(1500px, 92%);
-            margin: 0 auto;
-        }
-
-        .hero-rsat .hero-grid {
-            gap: 32px;
-        }
-
-        .hero-rsat .hero-copy h1 span {
-            color: #8cff00;
-        }
-
-        @media (max-width: 768px) {
-            .hero-rsat {
-                background-position: center;
-            }
-
-            .hero-rsat .hero-grid {
-                grid-template-columns: 1fr;
-                gap: 24px;
-            }
-
-            .hero-rsat .product-image {
-                width: 100%;
-                max-width: 420px;
-                height: auto;
-            }
-        }
-
         .hero-grid { display: grid; grid-template-columns: 1.05fr .95fr; align-items: center; gap: 48px; }
         .eyebrow { color: var(--neon); font-size: 12px; font-weight: 800; letter-spacing: 1.5px; margin-bottom: 14px; }
         .hero h1 { font-size: clamp(36px, 4.2vw, 54px); line-height: 1.12; margin-bottom: 20px; max-width: 600px; }
@@ -129,67 +94,18 @@
             border-radius: 12px; padding: clamp(20px, 4vw, 42px);
         }
         .product-layout .product-image { max-width: 500px; margin: auto; }
-
-        /* Galeri produk RSAT V1 */
-        .gallery-heading {
-            margin-top: 48px;
-        }
-
-        .product-gallery {
-            display: grid;
-            grid-template-columns: repeat(3, minmax(0, 1fr));
-            gap: 20px;
-            align-items: start;
-        }
-
-        .gallery-card {
-            min-width: 0;
-            padding: 16px;
-            background: var(--white);
-            color: var(--dark);
-            border: 1px solid var(--border);
-            border-bottom: 3px solid var(--green);
-            border-radius: 10px;
-            box-shadow: 0 4px 14px rgba(6, 25, 11, .04);
-        }
-
-        .gallery-card img {
-            display: block;
-            width: 100%;
-            aspect-ratio: 4 / 3;
-            object-fit: contain;
-            background: #f7faf6;
-            border-radius: 7px;
-        }
-
-        .gallery-card h3 {
-            font-size: 16px;
-        margin: 12px 0 6px;
-        }
-
-        .gallery-card p {
-            font-size: 13px;
-            line-height: 1.5;
-        }
-
-        @media (max-width: 900px) {
-            .product-gallery {
-                grid-template-columns: repeat(2, minmax(0, 1fr));
-                gap: 14px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .product-gallery {
-                grid-template-columns: 1fr;
-            }
-        }
-
         .product-info h2 { font-size: clamp(25px, 3vw, 34px); margin-bottom: 12px; }
         .product-info p { color: var(--muted); margin-bottom: 16px; }
         .product-info ul { padding-left: 22px; margin: 0 0 24px; }
         .product-info li { margin-bottom: 7px; }
         .price-note { color: var(--green-dark) !important; font-weight: 700; }
+        .page:not(#home) .section { background: radial-gradient(circle at 85% 40%, #176f30 0, #0b3b1b 42%, var(--dark) 100%); color: var(--white); }
+        .page:not(#home) .section-heading p { color: #e0e9e1; }
+        .gallery-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 22px; }
+        .gallery-card { overflow: hidden; background: var(--white); border: 1px solid var(--border); border-radius: 10px; box-shadow: 0 4px 14px rgba(6,25,11,.05); }
+        .gallery-card img { display: block; width: 100%; height: 300px; object-fit: contain; background: #fff; padding: 14px; }
+        .gallery-card figcaption { padding: 14px 16px 18px; color: var(--green-dark); font-weight: 700; text-align: center; }
+        .gallery-card figcaption { padding: 14px 16px 18px; color: var(--green-dark); font-size: 18px; font-weight: 700; text-align: center; }
         .contact-panel {
             max-width: 760px; margin: 0 auto; text-align: center; padding: clamp(24px, 5vw, 48px);
             background: linear-gradient(120deg, #eaf9e4, #d6f3cc); border: 1px solid #d2e9c9;
@@ -203,7 +119,7 @@
             .hero { padding: 52px 0; }
             .hero-grid { gap: 28px; grid-template-columns: 1fr .85fr; }
             .product-image { max-width: 360px; }
-            .features-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+            .features-grid, .gallery-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
         }
         @media (max-width: 650px) {
             .navbar { min-height: 64px; flex-direction: column; justify-content: center; gap: 8px; padding: 12px 0; }
@@ -218,7 +134,7 @@
             .hero-buttons .btn { flex: 1 1 160px; }
             .product-image { max-width: min(100%, 390px); }
             .section { padding: 48px 0; }
-            .features-grid { grid-template-columns: 1fr; gap: 14px; }
+            .features-grid, .gallery-grid { grid-template-columns: 1fr; gap: 14px; }
             .feature-card { padding: 21px; }
             .product-layout { grid-template-columns: 1fr; gap: 24px; }
             .product-info { text-align: left; }
@@ -227,61 +143,6 @@
         @media (prefers-reduced-motion: reduce) {
             *, *::before, *::after { animation: none !important; transition: none !important; }
         }
-
-        /* HOME: banner RSAT V1 */
-        #home .hero {
-            padding: 0;
-            background: #06190b;
-            color: #ffffff;
-        }
-
-        #home .hero-grid {
-            display: block;
-            width: 100%;
-            max-width: none;
-            margin: 0;
-            padding: 0;
-        }
-
-        #home .hero::before {
-            content: "";
-            display: block;
-            width: 100%;
-            aspect-ratio: 1648 / 927;
-            background: url("assets/images/rsat-hero.png") center / contain no-repeat;
-        }
-
-        @media (max-width: 600px) {
-            #home .hero::before {
-                aspect-ratio: 4 / 5;
-                background-size: contain;
-            }
-        }
-
-        #home .hero-rsat {
-            padding: 0;
-            margin: 0;
-            background: #06190b;
-            width: 100%;
-        }
-
-        #home .rsat-home-banner {
-            display: block;
-            width: 100%;
-            height: auto;
-            max-width: none;
-            margin: 0 auto;
-            object-fit: contain;
-        }
-
-        @media (max-width: 600px) {
-            #home .rsat-home-banner {
-                width: 100%;
-                height: auto;
-            }
-        }
-
-
     </style>
 </head>
 <body>
@@ -292,6 +153,7 @@
                 <a href="#home" data-page-link class="active" aria-current="page">Home</a>
                 <a href="#fitur" data-page-link>Fitur</a>
                 <a href="#produk" data-page-link>Produk</a>
+                <a href="#galeri" data-page-link>Galeri</a>
                 <a href="#kontak" data-page-link>Kontak</a>
             </nav>
         </div>
@@ -299,15 +161,22 @@
 
     <main>
         <section class="page active" id="home" aria-labelledby="home-title">
-            
-            <div class="hero hero-rsat">
-                <img
-                    src="assets/images/rsat-hero.png"
-                    alt="RSAT V1 Radar Security Alert Technology"
-                    class="rsat-home-banner"
-                >
+            <div class="hero">
+                <div class="container hero-grid">
+                    <div class="hero-copy">
+                        <p class="eyebrow">RADAR SECURITY ALARM TECHNOLOGY (RSAT)</p>
+                        <h1 id="home-title">Keamanan <span>Lebih Nyata.</span></h1>
+                        <p class="hero-description">
+                            Deteksi gerakan, alarm otomatis, dan solusi keamanan praktis
+                            untuk rumah, gudang, lokasi kerja, serta berbagai lokasi lainnya.
+                        </p>
+                        
+                    </div>
+                    <div class="product-visual">
+                        <img src="assets/images/rsat-hero.png.png" alt="Produk RSAT V1 Smart Security" class="product-image" width="450" height="450" fetchpriority="high">
+                    </div>
+                </div>
             </div>
-
         </section>
 
         <section class="page" id="fitur" aria-labelledby="fitur-title" hidden>
@@ -321,7 +190,7 @@
                         <article class="feature-card"><h3>Deteksi Gerakan</h3><p>Mendeteksi gerakan menggunakan teknologi sensor microwave.</p></article>
                         <article class="feature-card"><h3>Output Relay</h3><p>Mendukung keluaran kontak relay NO/NC untuk sistem alarm yang sesuai.</p></article>
                         <article class="feature-card"><h3>Alarm Suara</h3><p>Mendukung buzzer eksternal 5V untuk memberikan peringatan suara.</p></article>
-                        <article class="feature-card"><h3>Input 12–48V DC</h3><p>Gunakan catu daya sesuai spesifikasi perangkat dan konfigurasi instalasi.</p></article>
+                        <article class="feature-card"><h3>Input 12–48V DC & AC 110–240V</h3><p>Gunakan catu daya sesuai spesifikasi perangkat dan konfigurasi instalasi.</p></article>
                         <article class="feature-card"><h3>Desain Kompak</h3><p>Bentuk ringkas untuk membantu pemasangan di berbagai lokasi.</p></article>
                         <article class="feature-card"><h3>Instalasi Praktis</h3><p>Dirancang agar integrasi ke sistem alarm menjadi lebih mudah.</p></article>
                     </div>
@@ -329,117 +198,55 @@
             </div>
         </section>
 
+        <section class="page" id="produk" aria-labelledby="produk-title" hidden>
             <div class="section">
                 <div class="container">
                     <div class="section-heading">
                         <h1 id="produk-title">Produk RSAT V1</h1>
                         <p>Solusi deteksi gerakan untuk membantu kebutuhan keamanan lokasi Anda.</p>
                     </div>
-
-<section class="page" id="produk" aria-labelledby="produk-title" hidden>
-    <div class="section">
-        <div class="container">
-
-            <!-- PRODUK UTAMA -->
-            <div class="product-layout">
-
-                <div class="product-visual">
-                    <img
-                        src="assets/images/rsat-v1.png"
-                        alt="Produk utama RSAT V1 Smart Security"
-                        class="product-image"
-                        width="450"
-                        height="450"
-                        loading="lazy">
+                    <div class="product-layout">
+                        <div class="product-visual">
+                            <img src="assets/images/rsat-komponen-produk.png" alt="Perangkat RSAT V1 beserta komponen pendukung" class="product-image" width="450" height="450" loading="lazy">
+                        </div>
+                        <div class="product-info">
+                            <h2>RSAT V1 Smart Security</h2>
+                            <p>Perangkat deteksi gerakan yang dirancang untuk mendukung sistem alarm keamanan.</p>
+                            <ul>
+                                <li>Sensor microwave untuk deteksi gerakan</li>
+                                <li>Output relay untuk integrasi alarm</li>
+                                <li>Desain ringkas dan praktis</li>
+                                <li>Gunakan sesuai spesifikasi dan petunjuk pemasangan</li>
+                            </ul>
+                            <p class="price-note">Harga dan ketersediaan: silakan tanyakan melalui WhatsApp.</p>
+                            <a class="btn btn-primary" href="https://wa.me/6285221100190?text=Halo%2C%20saya%20ingin%20bertanya%20tentang%20produk%20RSAT%20V1." target="_blank" rel="noopener noreferrer">Tanyakan Produk</a>
+                        </div>
+                    </div>
                 </div>
+            </div>
+        </section>
 
-                <div class="product-info">
-                    <h2>RSAT V1 Smart Security</h2>
 
-                    <p>
-                        Perangkat deteksi gerakan yang dirancang
-                        untuk mendukung sistem alarm keamanan.
-                    </p>
-
-                    <ul>
-                        <li>Sensor microwave untuk deteksi gerakan</li>
-                        <li>Output relay untuk integrasi alarm</li>
-                        <li>Desain ringkas dan praktis</li>
-                        <li>Gunakan sesuai spesifikasi perangkat</li>
-                    </ul>
-
-                    <p class="price-note">  
-                        Harga dan ketersediaan dapat ditanyakan melalui WhatsApp.
-                    </p>
+        <section class="page" id="galeri" aria-labelledby="galeri-title" hidden>
+            <div class="section">
+                <div class="container">
+                    <div class="section-heading">
+                        <h1 id="galeri-title">Galeri RSAT V1</h1>
+                        <p>Lihat area penggunaan, cara kerja, dan informasi produk RSAT V1.</p>
+                    </div>
+                    <div class="gallery-grid">
+                        <figure class="gallery-card"><img src="assets/images/Area.png" alt="Contoh area penggunaan RSAT V1: tower, gudang, rumah, dan kios" loading="lazy"><figcaption>Area Penggunaan</figcaption></figure>
+                        <figure class="gallery-card"><img src="assets/images/rsat-produk-dc-ac.png" alt="Pilihan produk RSAT V1 varian DC dan AC" loading="lazy"><figcaption>Pilihan Varian DC dan AC</figcaption></figure>
+                        <figure class="gallery-card"><img src="assets/images/rsat-dimensi-dc.png" alt="Dimensi perangkat RSAT V1 DC" loading="lazy"><figcaption>Dimensi Produk</figcaption></figure>
+                        <figure class="gallery-card"><img src="assets/images/rsat-komponen-produk.png" alt="Komponen perangkat RSAT V1" loading="lazy"><figcaption>Komponen Produk</figcaption></figure>
+                        <figure class="gallery-card"><img src="assets/images/rsat-isi-paket-dc.png" alt="Isi paket RSAT V1 input DC" loading="lazy"><figcaption>Isi Paket</figcaption></figure>
+                        <figure class="gallery-card"><img src="assets/images/rsat-cara-kerja.png" alt="Diagram cara kerja sensor dan alarm RSAT V1" loading="lazy"><figcaption>Cara Kerja</figcaption></figure>
+                        <figure class="gallery-card"><img src="assets/images/rsat-spesifikasi-dc-ac.png" alt="Perbandingan spesifikasi RSAT V1 DC dan AC" loading="lazy"><figcaption>Spesifikasi DC dan AC</figcaption></figure>
+                        <figure class="gallery-card"><img src="assets/images/rsat-skema-rangkaian-dc.png" alt="Diagram rangkaian RSAT V1 input DC" loading="lazy"><figcaption>Skema Rangkaian DC</figcaption></figure>
+                    </div>
                 </div>
-
             </div>
-            <!-- product-layout BERAKHIR DI SINI -->
-
-            <!-- JUDUL GALERI -->
-            <div class="section-heading gallery-heading">
-                <h2>Pilihan Produk dan Informasi</h2>
-            </div>
-
-            <!-- GALERI GAMBAR -->
-            <div class="product-gallery">
-
-                <article class="gallery-card">
-                    <img src="assets/images/rsat-produk-dc-ac.png"
-                         alt="Pilihan produk RSAT V1 DC dan AC"
-                         loading="lazy">
-                    <h3>Pilihan Produk DC dan AC</h3>
-                    <p>Informasi pilihan produk sesuai sumber daya.</p>
-                </article>
-
-                <article class="gallery-card">
-                    <img src="assets/images/rsat-cara-kerja.png"
-                         alt="Cara kerja RSAT V1"
-                         loading="lazy">
-                    <h3>Cara Kerja</h3>
-                    <p>Ilustrasi awal deteksi gerakan hingga alarm aktif.</p>
-                </article>
-
-                <article class="gallery-card">
-                    <img src="assets/images/rsat-spesifikasi-dc-ac.png"
-                         alt="Spesifikasi RSAT V1 versi DC dan AC"
-                         loading="lazy">
-                    <h3>Spesifikasi Produk</h3>
-                    <p>Informasi spesifikasi kedua versi produk.</p>
-                </article>
-
-                <article class="gallery-card">
-                    <img src="assets/images/rsat-dimensi-dc.png"
-                         alt="Dimensi produk RSAT V1"
-                         loading="lazy">
-                    <h3>Dimensi Produk</h3>
-                    <p>Ilustrasi ukuran unit dan buzzer.</p>
-                </article>
-
-                <article class="gallery-card">
-                    <img src="assets/images/rsat-isi-paket-dc.png"
-                         alt="Isi paket RSAT V1 versi DC"
-                         loading="lazy">
-                    <h3>Isi Paket</h3>
-                    <p>Ilustrasi perangkat dan kelengkapan paket.</p>
-                </article>
-
-                <article class="gallery-card">
-                    <img src="assets/images/rsat-aplikasi-penggunaan.png"
-                         alt="Aplikasi penggunaan RSAT V1"
-                         loading="lazy">
-                    <h3>Aplikasi Penggunaan</h3>
-                    <p>Contoh penggunaan di rumah, gudang, kios, dan halaman.</p>
-                </article>
-
-            </div>
-            <!-- product-gallery BERAKHIR DI SINI -->
-
-        </div>
-    </div>
-</section>
-
-
+        </section>
         <section class="page" id="kontak" aria-labelledby="kontak-title" hidden>
             <div class="section">
                 <div class="container">
@@ -514,3 +321,10 @@
     </script>
 </body>
 </html>
+
+
+
+
+
+
+
